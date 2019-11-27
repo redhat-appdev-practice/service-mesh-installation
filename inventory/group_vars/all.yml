@@ -1,0 +1,22 @@
+---
+app_name: consultant-360-fe
+
+ci_cd_namespace: app-dev-ci-cd
+dev_namespace: consultant-360-dev
+
+openshift_templates_raw: "https://raw.githubusercontent.com/redhat-cop/openshift-templates"
+openshift_templates_raw_version_tag: "v1.4.12"
+cop_quickstarts: "https://github.com/redhat-cop/containers-quickstarts.git"
+cop_quickstarts_raw: "https://raw.githubusercontent.com/redhat-cop/containers-quickstarts"
+cop_quickstarts_raw_version_tag: "v1.14"
+
+dev:
+  NAMESPACE: "{{ dev_namespace }}"
+  NAMESPACE_DISPLAY_NAME: "{{ dev_namespace }}"
+
+edit_role_binding_group:
+  GROUP: "rhc-na-appdev-coe"
+  ROLE: "{{ role | default('edit') }}"
+admin_role_binding_group:
+  GROUP: "rhc-na-appdev-coe-admins"
+  ROLE: "admin"

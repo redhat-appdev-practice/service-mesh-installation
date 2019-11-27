@@ -1,0 +1,12 @@
+---
+- name: Configure the consultant360 projects and policies.
+  hosts: bootstrap
+  tasks:
+    - include_role:
+        name: openshift-applier/roles/openshift-applier
+
+- name: Build and Deploy Consulting-360
+  hosts: consultant360
+  tasks:
+    - include_role:
+        name: openshift-applier/roles/openshift-applier

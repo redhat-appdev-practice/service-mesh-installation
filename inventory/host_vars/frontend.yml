@@ -12,7 +12,13 @@ openshift_cluster_content:
         params: "{{ playbook_dir }}/params/consultant-360-fe-bc"
         namespace: "{{ ci_cd_namespace }}"
         tags:
-        - pipeline
+        - build
+      - name: consultant-360-fe-build
+        template: '{{ playbook_dir }}/templates/consultant-360-fe-is.yml'
+        params: "{{ playbook_dir }}/params/consultant-360-fe-is"
+        namespace: "{{ dev_namespace }}"
+        tags:
+        - build
       - name: keycloak
         template: '{{ playbook_dir }}/templates/keycloak.yml'
         params_from_vars:

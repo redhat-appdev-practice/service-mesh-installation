@@ -66,6 +66,11 @@ objects:
             ports: 
             - containerPort: 8080
               protocol: TCP
+            env: 
+            - name:  REACT_APP_BACKEND_URL
+              value: /mocks
+            - name:  REACT_APP_MOCK_USERS
+              value: true
       triggers:
       - type: ConfigChange
       - imageChangeParams:

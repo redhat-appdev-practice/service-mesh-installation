@@ -1,3 +1,3 @@
 PIPELINE_SOURCE_REPOSITORY_URL=https://gitlab.consulting.redhat.com/appdev-coe/consulting-360-front.git
-PIPELINE_SOURCE_REPOSITORY_REF=AI-34-Pipelines
+PIPELINE_SOURCE_REPOSITORY_REF=
 NAME=consultant-360-fe

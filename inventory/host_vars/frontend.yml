@@ -12,7 +12,7 @@ openshift_cluster_content:
         params: "{{ playbook_dir }}/params/consultant-360-fe-bc"
         namespace: "{{ ci_cd_namespace }}"
         tags:
-        - build
+        - ci-cd
       - name: consultant-360-fe-build
         template: '{{ playbook_dir }}/templates/consultant-360-fe-is.yml'
         params: "{{ playbook_dir }}/params/consultant-360-fe-is"

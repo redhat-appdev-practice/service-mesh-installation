@@ -20,12 +20,15 @@ ansible-playbook site.yml -i inventory/hosts -l bootstrap
 ansible-playbook site.yml -i inventory/hosts -l consultant360
 ```
 
-<div class="panel panel-warning">
-**Mac Users**
-{: .panel-heading}
-<div class="panel-body">
+##### Deploying only the Survey OpenAPI Documentation Website
+```
+ansible-playbook site.yml -i inventory/hosts -l consultant360 -e "include_tags=survey-openapi"
+```
 
-A recent update as placed a limit of the number of forks a process can create. To disable this, set **OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES**
+## Mac Users!
+> **WARNING:_**  A recent update as placed a limit of the number of forks a process can create. To disable this, set **OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES**
 
-</div>
-</div>
+##### Example
+```
+OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES ansible-playbook site.yml -i inventory/hosts -l consultant360 -e "include_tags=survey-openapi"
+```

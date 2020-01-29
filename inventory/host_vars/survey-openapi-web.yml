@@ -1,0 +1,14 @@
+---
+ansible_connection: local
+
+openshift_cluster_content:
+  - object: app-builds
+    content:
+      - name: consultant-360-fe-build
+        template: '{{ playbook_dir }}/templates/survey-openapi-web.yml'
+        params_from_vars:
+          NAME: survey-openapi
+        namespace: "{{ dev_namespace }}"
+        tags:
+        - survey-openapi
+

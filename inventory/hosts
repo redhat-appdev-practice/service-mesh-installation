@@ -3,10 +3,6 @@ projects-and-policies
 
 [consultant360]
 frontend
-<<<<<<< HEAD
 survey-openapi-web
 backend
-=======
 manager-frontend
-survey-openapi-web
->>>>>>> c87845600fe13e158fbc1c69b49b14c3fd33e57e

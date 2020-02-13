@@ -70,22 +70,22 @@ objects:
             - name: POSTGRES_URI
               valueFrom:
                 secretKeyRef:
-                  name: postgresql-persistent
-                  key: URI
+                  name: postgresql-persistent-service-binding
+                  key: uri
             - name: POSTGRES_DATABASE_NAME
               valueFrom:
                 secretKeyRef:
-                  name: postgresql-persistent
+                  name: postgresql-persistent-service-binding
                   key: DATABASE_NAME
             - name: POSTGRES_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: postgresql-persistent
+                  name: postgresql-persistent-service-binding
                   key: USERNAME
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: postgresql-persistent
+                  name: postgresql-persistent-service-binding
                   key: PASSWORD
       triggers:
       - type: ConfigChange

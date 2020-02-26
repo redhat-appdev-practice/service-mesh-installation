@@ -1,7 +1,7 @@
 [bootstrap]
 projects-and-policies
 
-[operators]
+[configure-operators]
 kiali-operator
 jaeger-operator
 elasticsearch-operator

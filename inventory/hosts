@@ -9,4 +9,4 @@ istio-operator
 
 [istio-system]
 service-mesh-control-plane
-service-mesh-member-roll
+

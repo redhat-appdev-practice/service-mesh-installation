@@ -1,9 +1,12 @@
 [bootstrap]
 projects-and-policies
 
-[consultant360]
-frontend
-survey-openapi-web
-survey-spring-service
-manager-frontend
-persistent-postgres
+[operators]
+kiali-operator
+jaeger-operator
+elasticsearch-operator
+istio-operator
+
+[istio-system]
+service-mesh-control-plane
+service-mesh-member-roll

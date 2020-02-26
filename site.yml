@@ -1,12 +1,19 @@
 ---
-- name: Configure the consultant360 projects and policies.
-  hosts: bootstrap
+- name: Configure Projects and Policies
+  hosts: projects-and-policies
+  tasks:
+    - include_role:
+        name: opensift-applier/roles/openshift-applier
+
+- name: Configure Operators for Istio, Elasticsearch, Jaeger, Kiali
+  hosts: configure-operators
   tasks:
     - include_role:
         name: openshift-applier/roles/openshift-applier
 
-- name: Build and Deploy Consulting-360
-  hosts: consultant360
+- name: Configure the Service Mesh Control Plane
+  hosts: istio-system
   tasks:
     - include_role:
         name: openshift-applier/roles/openshift-applier
+

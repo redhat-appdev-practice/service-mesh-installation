@@ -1,0 +1,57 @@
+Install Service Mesh
+1. Install Elasticsearch, kiali, jaeger
+2. cd service-mesh
+3. oc adm new-project istio-operator --display-name="Service Mesh Operator"
+4. oc apploy -n istio-operator -f istio-operator.yml
+5. oc adm new-project istio-system --display-name="Service Mesh System"
+5. oc apply -n istio-system -f service-mesh-control-plane.yml
+6. oc apply -f service-mesh-member-roll.yml -n istio-system
+
+Deploy Microservices
+1. Deploy Microservices
+2. oc apply service-mesh-gateway.yml -n appdev-demo
+3. oc -n istio-system get route istio-ingressgateway
+4. Kiali route from Openshift Console
+5. Demo Kiali
+6. Deploy v2
+7. Demo Load Balancing
+
+Demo 100% load
+6. oc apply -f destination-rule.yml
+7. oc apply -f virtual-service.yml
+8. Demo Load
+
+Demo Canary Load
+9. oc apply -f virtual-service-v1_v2_90_10.yml
+
+
+Notes:
+	Service Registry and labels
+	
+	
+
+
+
+
+
+Deploying CI/CD infrastructure
+1. cd app-dev-openshift-ci-cd
+2. ansible-galaxy install -r requirements.yml --roles-path=roles
+3. ansible-playbook site.yml -i inventory/hosts -l bootstrap
+4. ansible-playbook site.yml -i inventory/hosts -l ci-cd-tooling -e "nexus_validate_certs=false"
+5. updated jenkins-slave-mvn image: quay.io/openshift/origin-jenkins-agent-maven
+
+Deploying 360 infrastructure
+1. cd infrastructure
+2. ansible-playbook site.yml -i inventory/hosts -l bootstrap
+3. ansible-playbook site.yml -i inventory/hosts -l consultant360 -e "include_tags=survey-spring-service"
+
+Trigger Pipeline
+Deploy Build
+
+Onboarding Services
+1. oc apply service-mesh-gateway.yml
+	oc -n istio-system get route istio-ingressgateway
+2. Showcase roundrobin
+3. Showcase full traffic to one service
+4. Showcase partial traffic to one service

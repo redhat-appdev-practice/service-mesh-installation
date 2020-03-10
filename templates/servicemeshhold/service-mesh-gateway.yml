@@ -28,6 +28,6 @@ spec:
         exact: /
     route:
     - destination:
-        host: gateway
+        host: gateway 
         port:
           number: 8080

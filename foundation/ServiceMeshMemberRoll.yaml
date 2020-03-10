@@ -5,5 +5,4 @@ metadata:
 spec:
   members:
   # a list of projects joined into the service mesh
-  - consultant-360-dev
-  - appdev-demo
+  - user1-tutorial

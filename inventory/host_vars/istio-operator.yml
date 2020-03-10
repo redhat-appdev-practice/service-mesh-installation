@@ -7,17 +7,10 @@ build:
 openshift_cluster_content:
   - object: app-builds
     content:
-      - name: manager-360-fe-bc
-        template: '{{ playbook_dir }}/templates/manager-360-fe-bc.yml'
-        params: '{{ playbook_dir }}/params/manager-360-fe-bc'
-        namespace: '{{ ci_cd_namespace }}'
+      - name: istio-operator
+        template: '{{ playbook_dir }}/templates/istio-operator.yml'
+        params: '{{ playbook_dir }}/params/istio-operator'
+        namespace: istio-operator
         tags:
-          - ci-cd
-          - manager-front
-      - name: manager-360-fe-build
-        template: '{{ playbook_dir }}/templates/manager-360-fe-is.yml'
-        params: '{{ playbook_dir }}/params/manager-360-fe-is'
-        namespace: '{{ dev_namespace }}'
-        tags:
-          - build
-          - manager-front
+          - istio-operator
+

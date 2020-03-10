@@ -1,0 +1,38 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  creationTimestamp: '2020-02-23T22:18:50Z'
+  generation: 1
+  labels:
+    csc-owner-name: installed-redhat-openshift-operators
+    csc-owner-namespace: openshift-marketplace
+  name: elasticsearch-operator
+  namespace: openshift-operators
+  resourceVersion: '48636'
+  selfLink: >-
+    /apis/operators.coreos.com/v1alpha1/namespaces/openshift-operators/subscriptions/elasticsearch-operator
+  uid: 77b98b4a-568a-11ea-8597-0280f07b444e
+spec:
+  channel: '4.3'
+  installPlanApproval: Automatic
+  name: elasticsearch-operator
+  source: installed-redhat-openshift-operators
+  sourceNamespace: openshift-operators
+  startingCSV: elasticsearch-operator.4.3.1-202002032140
+status:
+  currentCSV: elasticsearch-operator.4.3.1-202002032140
+  installPlanRef:
+    apiVersion: operators.coreos.com/v1alpha1
+    kind: InstallPlan
+    name: install-tszlx
+    namespace: openshift-operators
+    resourceVersion: '48595'
+    uid: 852da23a-568a-11ea-8597-0280f07b444e
+  installedCSV: elasticsearch-operator.4.3.1-202002032140
+  installplan:
+    apiVersion: operators.coreos.com/v1alpha1
+    kind: InstallPlan
+    name: install-tszlx
+    uuid: 852da23a-568a-11ea-8597-0280f07b444e
+  lastUpdated: '2020-02-23T22:19:13Z'
+  state: AtLatestKnown

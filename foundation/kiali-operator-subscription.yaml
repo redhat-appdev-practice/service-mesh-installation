@@ -1,0 +1,38 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  creationTimestamp: '2020-02-23T22:25:33Z'
+  generation: 1
+  labels:
+    csc-owner-name: installed-redhat-openshift-operators
+    csc-owner-namespace: openshift-marketplace
+  name: kiali-ossm
+  namespace: openshift-operators
+  resourceVersion: '51093'
+  selfLink: >-
+    /apis/operators.coreos.com/v1alpha1/namespaces/openshift-operators/subscriptions/kiali-ossm
+  uid: 6834cf79-568b-11ea-8597-0280f07b444e
+spec:
+  channel: stable
+  installPlanApproval: Automatic
+  name: kiali-ossm
+  source: installed-redhat-openshift-operators
+  sourceNamespace: openshift-operators
+  startingCSV: kiali-operator.v1.0.9
+status:
+  currentCSV: kiali-operator.v1.0.9
+  installPlanRef:
+    apiVersion: operators.coreos.com/v1alpha1
+    kind: InstallPlan
+    name: install-cfqkg
+    namespace: openshift-operators
+    resourceVersion: '51001'
+    uid: 83e166df-568b-11ea-8597-0280f07b444e
+  installedCSV: kiali-operator.v1.0.9
+  installplan:
+    apiVersion: operators.coreos.com/v1alpha1
+    kind: InstallPlan
+    name: install-cfqkg
+    uuid: 83e166df-568b-11ea-8597-0280f07b444e
+  lastUpdated: '2020-02-23T22:26:25Z'
+  state: AtLatestKnown

@@ -1,9 +1,9 @@
 ---
 - name: Configure Projects and Policies
-  hosts: projects-and-policies
+  hosts: bootstrap
   tasks:
     - include_role:
-        name: opensift-applier/roles/openshift-applier
+        name: openshift-applier/roles/openshift-applier
 
 - name: Configure Operators for Istio, Elasticsearch, Jaeger, Kiali
   hosts: configure-operators

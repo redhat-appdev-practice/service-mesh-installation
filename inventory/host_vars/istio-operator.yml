@@ -2,13 +2,13 @@
 ansible_connection: local
 
 build:
-  NAME: '{{ app_name }}'
+  NAME: istio-operator
 
 openshift_cluster_content:
   - object: app-builds
     content:
       - name: istio-operator
-        template: '{{ playbook_dir }}/templates/istio-operator.yml'
+        template: '{{ playbook_dir }}/templates/istio-operator-auto.yml'
         params: '{{ playbook_dir }}/params/istio-operator'
         namespace: istio-operator
         tags:

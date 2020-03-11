@@ -2,7 +2,7 @@
 ansible_connection: local
 
 build:
-  NAME: '{{ app_name }}'
+  NAME: istio-system
 
 openshift_cluster_content:
   - object: app-builds

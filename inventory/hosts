@@ -2,9 +2,6 @@
 projects-and-policies
 
 [configure-operators]
-kiali-operator
-jaeger-operator
-elasticsearch-operator
 istio-operator
 
 [istio-system]

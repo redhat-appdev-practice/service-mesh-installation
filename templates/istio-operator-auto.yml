@@ -3,10 +3,10 @@ apiVersion: v1
 metadata:
   name: istio-operator
   annotations:
-    openshift.io/display-name: S2I App Build Template
-    description: S2I binary build config to create an image with your app baked in.
+    openshift.io/display-name: Istio Operator Template
+    description: Creating Istio Operator
     iconClass: fa-cube
-    tags: s2i
+    tags: istio
 objects:  
 - apiVersion: apiextensions.k8s.io/v1beta1
   kind: CustomResourceDefinition

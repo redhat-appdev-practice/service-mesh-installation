@@ -7,7 +7,7 @@ This playbook will create all the resources required running Service Mesh on a c
 Using the Openshift Operator Hub install the following operators in the openshift-operators namespace
  - Kiali Operator provided by Red Hat
  - Jaeger Operator provided by Red Hat
- - Elasticsearch Operator providded by Red Hat, Inc
+ - Elasticsearch Operator provided by Red Hat, Inc
 
 
 #### Openshift Applier

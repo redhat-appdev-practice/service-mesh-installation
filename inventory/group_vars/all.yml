@@ -1,12 +1,12 @@
+---
 istio_operator_namespace: istio-operator
-istio_system_namespace: istio-system
-
-istio_system:
-  NAMESPACE: 'istio-system'
-  NAMESPACE_DISPLAY_NAME: 'istio-system'
+istio_system_namespace:  istio-system
 
 openshift_templates_raw: "https://raw.githubusercontent.com/redhat-cop/openshift-templates"
 openshift_templates_raw_version_tag: "v1.4.12"
+cop_quickstarts: "https://github.com/redhat-cop/containers-quickstarts.git"
+cop_quickstarts_raw: "https://raw.githubusercontent.com/redhat-cop/containers-quickstarts"
+cop_quickstarts_raw_version_tag: "v1.14"
 
 istio_operator:
   NAMESPACE: "{{ istio_operator_namespace }}"
@@ -14,4 +14,11 @@ istio_operator:
 
 istio_system:
   NAMESPACE: "{{ istio_system_namespace }}"
-  NAMESPACE_DISPLAY_NAME: "{{ istio-system_namespace }}"
+  NAMESPACE_DISPLAY_NAME: "{{ istio_system_namespace }}"
+
+edit_role_binding_group:
+  GROUP: "rhc-na-appdev-coe"
+  ROLE: "{{ role | default('edit') }}"
+admin_role_binding_group:
+  GROUP: "rhc-na-appdev-coe-admins"
+  ROLE: "admin"

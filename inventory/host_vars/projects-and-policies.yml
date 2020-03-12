@@ -1,6 +1,7 @@
 ---
 ansible_connection: local
-# Create new projects with a given short name and display name
+
+#Create new projects with a given short name and display name
 openshift_cluster_content:
 - object: projectrequest
   content:
@@ -9,14 +10,18 @@ openshift_cluster_content:
     params_from_vars: "{{ istio_operator }}"
     action: create
     tags:
-    - istio-operator
+    - "{{ istio_operator_namespace }}"
     - projects
+    - "projects-{{ istio_operator_namespace }}"
 - object: projectrequest
   content:
-  - name: "{{ istio_system_namespace }}"  
+  - name: "{{ istio_system_namespace }}"
     template: "{{ openshift_templates_raw }}/{{ openshift_templates_raw_version_tag }}/project-requests/create-project.yml"
     params_from_vars: "{{ istio_system }}"
     action: create
     tags:
-    - istio-system
+    - "{{ istio_system_namespace }}"
     - projects
+    - "projects-{{ istio_system_namespace }}"
+
+

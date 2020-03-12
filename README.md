@@ -5,6 +5,9 @@ This playbook will create all the resources required running Service Mesh on a c
 [https://console-openshift-console.apps.shared-dev.dev.openshift.opentlc.com/](OCP 4.1 Cluster)
 #### Dependency Installation - Kiali, Jaeger, and Elasticsearch
 Using the Openshift Operator Hub install the following operators in the openshift-operators namespace
+ - Kiali
+ - Jaeger
+ - Elasticsearch
 
 
 #### Openshift Applier

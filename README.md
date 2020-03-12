@@ -1,6 +1,6 @@
-## Consultant 360 OCP Infrastructure
+## Installing Service Mesh Operator and Control Plane
 
-This playbook will create all the resources required for the consultant 360 application.
+This playbook will create all the resources required running Service Mesh on a cluster.
 
 [https://console-openshift-console.apps.shared-dev.dev.openshift.opentlc.com/](OCP 4.1 Cluster)
 

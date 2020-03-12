@@ -18,22 +18,16 @@ ansible-galaxy install -r requirements.yml -p roles
 ansible-playbook site.yml -i inventory/hosts -l bootstrap
 ```
 
-##### Deploying Consultant 360 Applications
+##### Deploying Openshift Operator
 
 ```
-ansible-playbook site.yml -i inventory/hosts -l consultant360
+ansible-playbook site.yml -i inventory/hosts -l istio-operator
 ```
 
-##### Deploying only the Survey OpenAPI Documentation Website
+##### Deploying Openshift Control Plane and Member Roll
 
 ```
-ansible-playbook site.yml -i inventory/hosts -l consultant360 -e "include_tags=survey-openapi"
-```
-
-##### Deploying only the Persistent Postgres Database
-
-```
-ansible-playbook site.yml -i inventory/hosts -l consultant360 -e "include_tags=persistent-postgres"
+ansible-playbook site.yml -i inventory/hosts -l istio-system
 ```
 
 ## Mac Users!

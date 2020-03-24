@@ -2,9 +2,9 @@ apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
   creationTimestamp: null
-  name: catalog
+  name: survey-service
 spec:
-  host: catalog
+  host: survey-service
   subsets:
   - labels:
       version: v1
@@ -12,3 +12,4 @@ spec:
   - labels:
       version: v2
     name: version-v2
+

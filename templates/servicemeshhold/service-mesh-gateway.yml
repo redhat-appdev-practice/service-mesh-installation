@@ -25,9 +25,15 @@ spec:
   http:
   - match:
     - uri:
-        exact: /
+        prefix: /
     route:
     - destination:
-        host: gateway 
+        host: survey-service 
         port:
           number: 8080
+      weight: 90
+    - destination:
+        host: survey-service-node
+        port:
+          number: 8080
+      weight: 10

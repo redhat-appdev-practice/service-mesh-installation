@@ -1,12 +1,12 @@
 kind: Template
 apiVersion: v1
 metadata:
-  name: istio-control-plane
+  name: prereq-operator
   annotations:
-    openshift.io/display-name: Istio Control Plane
-    description: Installing Istio Control Plane
+    openshift.io/display-name: Install PreRequisite Operators
+    description: Installing Kiali, Jaeger, ElasticSearch
     iconClass: fa-cube
-    tags: istio
+    tags: prereq
 objects:  
 - apiVersion: operators.coreos.com/v1alpha1
   kind: Subscription

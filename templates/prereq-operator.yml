@@ -19,7 +19,6 @@ objects:
     source: "redhat-operators"
     sourceNamespace: "openshift-marketplace" 
     name: "elasticsearch-operator"
----
 - apiVersion: operators.coreos.com/v1alpha1
   kind: Subscription
   metadata:
@@ -31,7 +30,6 @@ objects:
     source: "redhat-operators"
     sourceNamespace: "openshift-marketplace" 
     name: "jaeger-product"
----
 - apiVersion: operators.coreos.com/v1alpha1 
   kind: Subscription
   metadata:

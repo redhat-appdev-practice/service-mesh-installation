@@ -1,0 +1,15 @@
+---
+ansible_connection: local
+
+build:
+  NAME: prereq-operator
+
+openshift_cluster_content:
+  - object: app-builds
+    content:
+      - name: istio-operator
+        template: '{{ playbook_dir }}/templates/prereq-operator.yml'
+        params: '{{ playbook_dir }}/params/prereq-operator'
+        namespace: openshift-operators
+        tags:
+          - prereq-operator

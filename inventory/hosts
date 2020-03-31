@@ -2,6 +2,7 @@
 projects-and-policies
 
 [configure-operators]
+prereq-operator
 istio-operator
 
 [istio-system]

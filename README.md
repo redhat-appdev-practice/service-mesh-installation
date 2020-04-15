@@ -1,8 +1,7 @@
 ## Installing Service Mesh Operator and Control Plane
 
-This playbook will create all the resources required running Service Mesh on a cluster.
+This playbook will create all the resources required running Service Mesh on an OpenShift 4.x cluster.
 
-[https://console-openshift-console.apps.shared-dev.dev.openshift.opentlc.com/](OCP 4.1 Cluster)
 #### Dependency Installation - Kiali, Jaeger, and Elasticsearch
 Using the Openshift Operator Hub install the following operators in the openshift-operators namespace
  - Kiali Operator provided by Red Hat

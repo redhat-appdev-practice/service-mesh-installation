@@ -10,7 +10,8 @@ openshift_cluster_content:
       - name: istio-operator
         template: '{{ playbook_dir }}/templates/istio-operator-auto.yml'
         params: '{{ playbook_dir }}/params/istio-operator'
-        namespace: istio-operator
+        params_from_vars: "{{ istio_operator }}"
+        namespace: "{{ istio_operator_namespace }}"
         tags:
           - istio-operator
 

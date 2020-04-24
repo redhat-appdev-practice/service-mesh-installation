@@ -1,8 +1,0 @@
-apiversion: "operators.coreos.com/v2"
-kind:  "CatalogSourceConfig"
-metadata:
-  name: operator-catalog-source
-  namespace: openshift-marketplace
-spec:
-  targetnamespace:  openshift-operators
-  packages: elasticsearch-operator, jaeger, kiali

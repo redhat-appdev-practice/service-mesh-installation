@@ -10,7 +10,8 @@ openshift_cluster_content:
       - name: service-mesh-control-plane
         template: '{{ playbook_dir }}/templates/service-mesh-control-plane.yml'
         params: '{{ playbook_dir }}/params/service-mesh-control-plane'
-        namespace: istio-system
+        params_from_vars: "{{ istio_system }}"
+        namespace: "{{ istio_system_namespace }}"
         tags:
           - istio-system
           - service-mesh-control-plane
@@ -20,7 +21,8 @@ openshift_cluster_content:
       - name: service-mesh-member-roll
         template: '{{ playbook_dir }}/templates/service-mesh-member-roll.yml'
         params: '{{ playbook_dir }}/params/service-mesh-member-roll'
-        namespace: istio-system
+        params_from_vars: "{{ istio_system }}"
+        namespace: "{{ istio_system_namespace }}"
         tags:
           - istio-system
           - service-mesh-control-plane

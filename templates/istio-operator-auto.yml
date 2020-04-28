@@ -294,14 +294,14 @@ objects:
   kind: ServiceAccount
   metadata:
     name: istio-operator
-    namespace: istio-operator
+    namespace: ${NAMESPACE}
 - apiVersion: rbac.authorization.k8s.io/v1beta1
   kind: ClusterRoleBinding
   metadata:
     name: istio-operator-account-istio-operator-cluster-role-binding
   subjects:
   - kind: ServiceAccount
-    namespace: istio-operator
+    namespace: ${NAMESPACE}
     name: istio-operator
   roleRef:
     kind: ClusterRole
@@ -311,7 +311,7 @@ objects:
   kind: Service
   metadata:
     name: admission-controller
-    namespace: istio-operator
+    namespace: ${NAMESPACE}
   spec:
     ports:
     - port: 443
@@ -324,7 +324,7 @@ objects:
   kind: Deployment
   metadata:
     name: istio-operator
-    namespace: istio-operator
+    namespace: ${NAMESPACE}
   spec:
     replicas: 1
     selector:
@@ -369,3 +369,8 @@ objects:
             volumeMounts:
             - name: discovery-cache
               mountPath: /home/istio-operator/.kube/cache/discovery
+
+parameters:
+- description: Name
+  displayName: Name
+  name: NAMESPACE

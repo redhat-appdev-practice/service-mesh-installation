@@ -44,3 +44,9 @@ ansible-playbook site.yml -i inventory/hosts -l istio-system
 ```
 OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES ansible-playbook site.yml -i inventory/hosts -l consultant360 -e "include_tags=survey-openapi"
 ```
+
+## Specifying a namespace for operator/system
+
+You can specify a namespace by including "istio_system_namespace" and "istio_operator_namespace" on *all* ansible playbook commands:
+
+i.e.: ansible-playbook site.yml -i inventory/hosts -l bootstrap -e "istio_system_namespace=custom-system-namespace istio_operator_namespace=custom-operator-namespace"

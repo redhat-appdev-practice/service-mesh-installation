@@ -1,30 +1,25 @@
 ---
 ansible_connection: local
 
-build:
-  NAME: istio-system
-
 openshift_cluster_content:
+  #Create istio-system project
+  - object: projectrequest
+    content:
+    - name: "{{ istio_system_namespace }}"
+      template: "{{ openshift_templates_raw }}/{{ openshift_templates_raw_version_tag }}/project-requests/create-project.yml"
+      params_from_vars: "{{ istio_system }}"
+      action: create
+  #Deploying Openshift Control Plane and Member Roll
   - object: app-builds
     content:
       - name: service-mesh-control-plane
         template: '{{ playbook_dir }}/templates/service-mesh-control-plane.yml'
-        params: '{{ playbook_dir }}/params/service-mesh-control-plane'
         params_from_vars: "{{ istio_system }}"
         namespace: "{{ istio_system_namespace }}"
-        tags:
-          - istio-system
-          - service-mesh-control-plane
-
   - object: app-builds
     content:
       - name: service-mesh-member-roll
         template: '{{ playbook_dir }}/templates/service-mesh-member-roll.yml'
-        params: '{{ playbook_dir }}/params/service-mesh-member-roll'
         params_from_vars: "{{ istio_system }}"
         namespace: "{{ istio_system_namespace }}"
-        tags:
-          - istio-system
-          - service-mesh-control-plane
-          - service-mesh-member-roll
         

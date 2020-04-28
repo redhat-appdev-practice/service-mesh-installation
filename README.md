@@ -17,13 +17,13 @@ ansible-galaxy install -r requirements.yml -p roles
 
 #### Executing the playbook
 
-##### Bootstrapping Projects and Creating Roles
+##### Deploying Openshift Operator With Required Operators
 
 ```
-ansible-playbook site.yml -i inventory/hosts -l bootstrap
+ansible-playbook site.yml -i inventory/hosts -l configure-operators
 ```
 
-##### Deploying Openshift Operator
+##### Deploying Openshift Operator Standalone
 
 ```
 ansible-playbook site.yml -i inventory/hosts -l istio-operator
@@ -42,7 +42,7 @@ ansible-playbook site.yml -i inventory/hosts -l istio-system
 ##### Example
 
 ```
-OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES ansible-playbook site.yml -i inventory/hosts -l consultant360 -e "include_tags=survey-openapi"
+OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES ansible-playbook site.yml -i inventory/hosts -l consultant360
 ```
 
 ## Specifying a namespace for operator/system

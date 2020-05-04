@@ -7,6 +7,13 @@ projects:
       location: 'https://github.com/redhat-appdev-practice/service-mesh-installation.git'
       type: git
       branch: devfile
+projects:
+  - name: openshift-applier
+    source:
+      location: 'https://github.com/redhat-cop/openshift-applier.git'
+      type: git
+      branch: master
+    clonePath: service-mesh-installation/roles/openshift-applier
 components:
   - alias: ansible
     type: dockerimage
@@ -20,6 +27,8 @@ components:
     env:
       - name: HOME
         value: /projects/
+  - id: redhat/vscode-yaml/latest
+    type: chePlugin
 commands:
   - name: "Yamllint:"
     actions:

@@ -10,7 +10,7 @@ projects:
 components:
   - alias: ansible
     type: dockerimage
-    image: quay.io/repository/ansible-tower/ansible-runner
+    image: quay.io/ansible-tower/ansible-runner
     memoryLimit: 512M
     mountSources: true
     args:

@@ -20,53 +20,21 @@ components:
     env:
       - name: HOME
         value: /projects/
-  - alias: ansible-plugin
-    type: chePlugin
-    reference: https://raw.githubusercontent.com/sunix/che-ansible/master/plugin/meta.yaml
-  - id: redhat/vscode-yaml/latest
-    type: chePlugin
 commands:
-  - name: "Molecule: Lint"
+  - name: "Yamllint:"
     actions:
       - type: exec
-        command: molecule lint
+        command: yamllint
         component: ansible
-        workdir: /projects/ansible-role-tower-config
+        workdir: /projects/service-mesh-installation
 
-  - name: "Yamllint: workshops"
-    actions:
-      - type: exec
-        command: yamllint .
-        component: ansible
-        workdir: /projects/workshops
+  # - name: "Workshop: RHEL"
+  #   actions:
+  #     - type: exec
+  #       command: ansible-playbook provision_lab.yml -e @sample_workshops/sample-vars-rhel.yml
+  #       component: ansible
+  #       workdir: /projects/service-mesh-installation
 
-  - name: "Workshop: RHEL"
-    actions:
-      - type: exec
-        command: ansible-playbook provision_lab.yml -e @sample_workshops/sample-vars-rhel.yml
-        component: ansible
-        workdir: /projects/workshops/provisioner
-
-  - name: "Workshop: Networking"
-    actions:
-      - type: exec
-        command: ansible-playbook provision_lab.yml -e @sample_workshops/sample-vars-networking.yml
-        component: ansible
-        workdir: /projects/workshops/provisioner
-
-  - name: "Workshop: Security"
-    actions:
-      - type: exec
-        command: ansible-playbook provision_lab.yml -e @sample_workshops/sample-vars-security.yml
-        component: ansible
-        workdir: /projects/workshops/provisioner
-
-  - name: "Workshop: F5"
-    actions:
-      - type: exec
-        command: ansible-playbook provision_lab.yml -e @sample_workshops/sample-vars-f5.yml
-        component: ansible
-        workdir: /projects/workshops/provisioner
 
 
 

@@ -7,7 +7,6 @@ projects:
       location: 'https://github.com/redhat-appdev-practice/service-mesh-installation.git'
       type: git
       branch: devfile
-projects:
   - name: openshift-applier
     source:
       location: 'https://github.com/redhat-cop/openshift-applier.git'
@@ -30,19 +29,24 @@ components:
   - id: redhat/vscode-yaml/latest
     type: chePlugin
 commands:
-  - name: "Yamllint:"
+  - name: "Configure Pre-Req Operators (dry-run)"
     actions:
       - type: exec
-        command: yamllint
+        command: ansible-playbook site.yml -i inventory/hosts -l configure-operators
         component: ansible
         workdir: /projects/service-mesh-installation
-
-  # - name: "Workshop: RHEL"
-  #   actions:
-  #     - type: exec
-  #       command: ansible-playbook provision_lab.yml -e @sample_workshops/sample-vars-rhel.yml
-  #       component: ansible
-  #       workdir: /projects/service-mesh-installation
+  - name: "Install Istio Operator (dry-run)"
+    actions:
+      - type: exec
+        command: ansible-playbook site.yml -i inventory/hosts -l istio-operator
+        component: ansible
+        workdir: /projects/service-mesh-installation
+  - name: "Install Istio System (dry-run)"
+    actions:
+      - type: exec
+        command: ansible-playbook site.yml -i inventory/hosts -l istio-system
+        component: ansible
+        workdir: /projects/service-mesh-installation
 
 
 

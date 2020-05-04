@@ -1,0 +1,53 @@
+apiVersion: 1.0.0
+metadata:
+  generateName: service-mesh-installation
+projects:
+  - name: service-mesh-installation
+    source:
+      location: 'https://github.com/redhat-appdev-practice/service-mesh-installation.git'
+      type: git
+      branch: devfile
+  - name: openshift-applier
+    source:
+      location: 'https://github.com/redhat-cop/openshift-applier.git'
+      type: git
+      branch: master
+    clonePath: service-mesh-installation/roles/openshift-applier
+components:
+  - alias: ansible
+    type: dockerimage
+    image: quay.io/ansible-tower/ansible-runner
+    memoryLimit: 512M
+    mountSources: true
+    args:
+      - tail
+      - '-f'
+      - /dev/null
+    env:
+      - name: HOME
+        value: /projects/
+  - id: redhat/vscode-yaml/latest
+    type: chePlugin
+commands:
+  - name: "Configure Pre-Req Operators (dry-run)"
+    actions:
+      - type: exec
+        command: ansible-playbook site.yml -i inventory/hosts -l configure-operators
+        component: ansible
+        workdir: /projects/service-mesh-installation
+  - name: "Install Istio Operator (dry-run)"
+    actions:
+      - type: exec
+        command: ansible-playbook site.yml -i inventory/hosts -l istio-operator
+        component: ansible
+        workdir: /projects/service-mesh-installation
+  - name: "Install Istio System (dry-run)"
+    actions:
+      - type: exec
+        command: ansible-playbook site.yml -i inventory/hosts -l istio-system
+        component: ansible
+        workdir: /projects/service-mesh-installation
+
+
+
+
